@@ -13,8 +13,5 @@ router.get('/', mainPagesController.getLandingPage);
 router.get('/about', mainPagesController.getAboutPage);
 
 
-
-
-
 //exporting section 
 module.exports = router;

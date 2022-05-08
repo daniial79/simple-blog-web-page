@@ -8,13 +8,13 @@ const morgan = require('morgan');
 
 //server configurations
 const server = express();
-const port = Number(process.env.PORT) || 5000;
-const hostName = process.env.SERVER_HOST || '127.0.0.1';
+const port = process.env.PORT;
+
 
 //connect to database
-const dbUri = 'mongodb+srv://<username>:<password>@practicenode.qfrfa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const dbUri = process.env.DB_URI
 mongoose.connect(dbUri, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(result => server.listen(port, hostName, () => console.log(`server is live at http://${hostName}:${port} baseUrl`)))
+    .then(result => server.listen(port, () => console.log(`server is live at port ${port}`)))
     .catch(error => console.log('something went wrong!'));
 
 
